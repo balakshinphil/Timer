@@ -1,15 +1,16 @@
 from timer import Timer
+from gui import GUI
 
 
 
 HOURS = 0
-MINUTES = 0
+MINUTES = 2
 SECONDS = 10
 
 
 def main():
     timer = Timer(HOURS, MINUTES, SECONDS)
-    timer.run()
+    gui = GUI(timer)
 
 
 if __name__ == '__main__':
