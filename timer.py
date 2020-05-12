@@ -3,12 +3,14 @@ from time import sleep
 
 
 class Timer():
-    time = 0
-    
-
 
     def __init__(self, hours, minutes, seconds):
-        self.time = hours * 3600 + minutes * 60 + seconds
+        self._time = hours * 3600 + minutes * 60 + seconds
+
+    @property
+    def time(self):
+        print("Getter")
+        return self._time;
 
 
     def __clean_line(self):
@@ -16,17 +18,17 @@ class Timer():
 
 
     def __print_time(self):
-        hours = self.time // 3600
-        minutes = (self.time - hours * 3600) // 60
-        seconds = self.time - hours * 3600 - minutes * 60
+        hours = self._time // 3600
+        minutes = (self._time - hours * 3600) // 60
+        seconds = self._time - hours * 3600 - minutes * 60
         self.__clean_line()
         print(str(hours) + " : " + str(minutes) + " : " + str(seconds), end='')
         
 
     def run(self):
-        while(self.time > 0):
-            self.__print_time()
-            self.time -= 1
+        while(self._time > 0):
+            self.__print__time()
+            self._time -= 1
             sleep(1)
         self.__clean_line()    
         print('0 : 0 : 0')
