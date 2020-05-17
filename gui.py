@@ -90,6 +90,7 @@ class GUI():
         self._root = tk.Tk()
         self._root.title("Timer")
         self._root.geometry("300x150")
+        self._root.resizable(width=False, height=False)
 
 
         windowWidth = self._root.winfo_reqwidth()
